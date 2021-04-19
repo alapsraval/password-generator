@@ -31,7 +31,10 @@ function getPasswordCriteria() {
   passwordLength = prompt("Please enter your password length between 8 and 128");
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength) == true) {
     passwordLength = prompt("You must enter your password length between 8 and 128");
-    if (passwordLength === null) break;
+    if (passwordLength === null) {
+      alert("Please try again when you are ready.")
+      break;
+    }
   }
   if (passwordLength !== null) {
     //if(passwordLength < 8 || passwordLength > 128 ) prompt("Please enter your password length");
