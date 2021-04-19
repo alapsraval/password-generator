@@ -28,11 +28,11 @@ function generatePassword() {
 }
 
 function getPasswordCriteria() {
-  passwordLength = prompt("Please enter your password length between 8 and 128");
+  passwordLength = prompt("Please enter desired password length between 8 and 128");
   while (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength) == true) {
-    passwordLength = prompt("You must enter your password length between 8 and 128");
+    passwordLength = prompt("You must enter desired password length between 8 and 128");
     if (passwordLength === null) {
-      alert("Please try again when you are ready.")
+      alert("You must enter desired password length. Please try again when you are ready.")
       break;
     }
   }
@@ -57,7 +57,7 @@ function getPasswordCriteria() {
         selectedCharacters.push(...specialCharacters);
       }
     } else {
-      alert("You must select one criteria.");
+      alert("You must select at least one criteria. Please try again when you are ready.");
     }
   }
 }
