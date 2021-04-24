@@ -86,13 +86,21 @@ function resetAll() {
 }
 
 function copyToClipboard(passwordToCopy) {
-  /* Select the text field */
-  passwordToCopy.select();
-  passwordToCopy.setSelectionRange(0, 99999); /* For mobile devices */
-  /* Copy the text inside the text field to clipboard*/
-  document.execCommand("copy");
+  if (passwordToCopy.value) {
+    /* Select the text field */
+    passwordToCopy.select();
+    passwordToCopy.setSelectionRange(0, 99999); /* For mobile devices */
+    /* Copy the text inside the text field to clipboard*/
+    document.execCommand("copy");
+    alert("Your password is copied to clipboard.")
+  }else{
+    alert("No password to copy to clipboard.")
+  }
+
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-copyBtn.addEventListener("click", copyToClipboard(passwordText));
+copyBtn.addEventListener("click", function () {
+  copyToClipboard(passwordText);
+});
