@@ -1,5 +1,7 @@
 // Assignment Code
 const generateBtn = document.querySelector("#generate");
+const copyBtn = document.querySelector("#copy");
+const passwordText = document.querySelector("#password");
 let passwordLength = 0;
 let isLowerCase = false;
 let isUpperCase = false;
@@ -83,5 +85,14 @@ function resetAll() {
   selectedCharacters = [];
 }
 
+function copyToClipboard(passwordToCopy) {
+  /* Select the text field */
+  passwordToCopy.select();
+  passwordToCopy.setSelectionRange(0, 99999); /* For mobile devices */
+  /* Copy the text inside the text field to clipboard*/
+  document.execCommand("copy");
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+copyBtn.addEventListener("click", copyToClipboard(passwordText));
